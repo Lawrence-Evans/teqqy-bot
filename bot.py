@@ -124,12 +124,12 @@ grid = Grid()
 @bot.command(name='O+Xs', help='Starts a game of noughts and crosses')
 async def playerturn(ctx):
 # Respond with starting grid
-response = grid.rowOne.values()
-await ctx.send(response)
-response = grid.rowTwo.values()
-await ctx.send(response)
-response = grid.rowThree.values()
-await ctx.send(response)
+    response = grid.rowOne.values()
+    await ctx.send(response)
+    response = grid.rowTwo.values()
+    await ctx.send(response)
+    response = grid.rowThree.values()
+    await ctx.send(response)
 
 # Player taking a turn by choosing grid number and O or X
 # a = int(input('Grid number'))
