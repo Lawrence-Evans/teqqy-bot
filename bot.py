@@ -101,7 +101,7 @@ async def roll(ctx, number_of_dice: int, number_of_sides: int):
 
 # Assume all empty parentheses need ctx for discord along with async and await. Needs checking.
 # Define the grid
-class grid():
+class Grid():
     rowOne = {
             1: 1,
             2: 2,
