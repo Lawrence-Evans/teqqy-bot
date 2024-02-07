@@ -101,7 +101,6 @@ async def roll(ctx, number_of_dice: int, number_of_sides: int):
 
 # Assume all empty parentheses need ctx for discord along with async and await. Needs checking.
 # Define the grid
-@bot.command(name='O+Xs', help='Starts a game of noughts and crosses')
 class grid():
     rowOne = {
             1: 1,
@@ -119,33 +118,39 @@ class grid():
             9: 9
         }
 
-# Create and show starting grid
-grid = Grid()
-print(grid.rowOne.values())
-print(grid.rowTwo.values())
-print(grid.rowThree.values())
+# Create grid
+grid = Grid()        
+
+@bot.command(name='O+Xs', help='Starts a game of noughts and crosses')
+async def playerturn(ctx):
+# Respond with starting grid
+response = grid.rowOne.values()
+await ctx.send(response)
+response = grid.rowTwo.values()
+await ctx.send(response)
+response = grid.rowThree.values()
+await ctx.send(response)
 
 # Player taking a turn by choosing grid number and O or X
-def playerturn():
-    a = int(input('Grid number'))
-    b = str(input('O or X'))
-    # Changing the grid
-    if a in range(1, 4):
-        grid.rowOne.update({a: b})
-    elif a in range(4, 7):
-        grid.rowTwo.update({a: b})
-    elif a in range(7, 10):
-        grid.rowThree.update({a: b})
-    # Grid updated with player move
-    print(f'Grid number {a} is now {b} ')
-    print(grid.rowOne.values())
-    print(grid.rowTwo.values())
-    print(grid.rowThree.values())
-    # Text players turn
-    playerturn()
+# a = int(input('Grid number'))
+# b = str(input('O or X'))
+# # Changing the grid
+# if a in range(1, 4):
+#     grid.rowOne.update({a: b})
+# elif a in range(4, 7):
+#     grid.rowTwo.update({a: b})
+# elif a in range(7, 10):
+#     grid.rowThree.update({a: b})
+# # Grid updated with player move
+# print(f'Grid number {a} is now {b} ')
+# print(grid.rowOne.values())
+# print(grid.rowTwo.values())
+# print(grid.rowThree.values())
+# # Text players turn
+# playerturn()
 
-# Calling first turn
-playerturn()
+# # Calling first turn
+# playerturn()
 
 # Role Restricted Actions
 @bot.command(name='create-channel')
